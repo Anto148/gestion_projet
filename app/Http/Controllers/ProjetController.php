@@ -12,6 +12,10 @@ class ProjetController extends Controller
      */
     public function index()
     {
+        // $projets = Projet::paginate(10);
+        // return view('projet.index', [
+        //     'projets' => projets::paginate(10),
+        // ]);
         //
     }
 
@@ -20,7 +24,7 @@ class ProjetController extends Controller
      */
     public function create()
     {
-        //
+        return view('projet.create');
     }
 
     /**
