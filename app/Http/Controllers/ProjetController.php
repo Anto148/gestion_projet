@@ -4,18 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Models\Projet;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class ProjetController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
-        // $projets = Projet::paginate(10);
-        // return view('projet.index', [
-        //     'projets' => projets::paginate(10),
-        // ]);
+        $projets = Projet::paginate(10);
+        return view('projet.index', [
+            'projets' => projet::paginate(10),
+        ]);
         //
     }
 
