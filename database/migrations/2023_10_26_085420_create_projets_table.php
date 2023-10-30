@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('nom');
             $table->date('date_debut');
             $table->date('date_fin');
-            $table->unsignedBigInteger('created_by_id');
-            $table->string('status');
+            $table->unsignedBigInteger('created_by_id')->default(auth()->id());
+            $table->string('status')->default('En cours');
             $table->timestamps();
         });
     }

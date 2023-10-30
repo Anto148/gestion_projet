@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProjetRequest;
 use App\Models\Projet;
+use Auth;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -13,11 +15,9 @@ class ProjetController extends Controller
      */
     public function index(): View
     {
-        $projets = Projet::paginate(10);
-        return view('projet.index', [
-            'projets' => projet::paginate(10),
-        ]);
-        //
+        $projets = Projet::all(); // Récupérez tous les projets depuis la base de données.
+
+        return view('dashboard', compact('projets')); 
     }
 
     /**
@@ -31,9 +31,23 @@ class ProjetController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ProjetRequest $request)
     {
-        //
+
+        $Validateddata = $request->validated();
+
+        $projet = new Projet;
+        $projet->nom = $request->input('nom');
+        $projet->date_debut = $request->input('date_debut');
+        $projet->date_fin = $request->input('date_fin');
+        $projet->created_by_id = Auth::user()->id;
+        $projet->status = 'En cours';
+        // $status = $projet->calculerStatut();
+        // $projet->status = $status;
+        $projet->save();
+
+        return redirect()->route('projets.index')->with('success', 'Projet créé avec succès');
+
     }
 
     /**
