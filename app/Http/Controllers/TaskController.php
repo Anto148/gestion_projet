@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Task;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
+
 
 class TaskController extends Controller
 {
@@ -12,7 +15,9 @@ class TaskController extends Controller
      */
     public function index()
     {
-        //
+        $tasks = Task::all(); // Récupérez toutes les tâches depuis la base de données.
+
+        //return view('dashboard', compact('projets')); 
     }
 
     /**

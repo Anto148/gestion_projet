@@ -25,7 +25,7 @@ class ProjetController extends Controller
      */
     public function create()
     {
-        return view('projet.create');
+        return view('projet.index');
     }
 
     /**
@@ -53,9 +53,9 @@ class ProjetController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Projet $projet)
+    public function show(Projet $dernierProjet)
     {
-        //
+            
     }
 
     /**

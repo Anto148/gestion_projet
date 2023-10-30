@@ -46,7 +46,7 @@
     
 
 <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-    <a href="{{route('projets.index')}}">Créer un nouveau projet</a>
+    <a href="{{route('projets.create')}}">Créer un nouveau projet</a>
 </button>
     
 @endsection
